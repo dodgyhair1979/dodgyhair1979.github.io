@@ -1,0 +1,87 @@
+
+/*font-family: 'Indie Flower', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Raleway', sans-serif;*/
+
+.no_margin {
+/*padding:0;*/
+}
+
+.main_background_image {background-image: url("../img/friends-laughing.jpg");
+/*Cover stretches to cover whole container. contain = always shjow entire image*/
+background-size: cover;
+background-origin: center;
+background-repeat:no-repeat;
+background-position: center center;
+background-attachment: fixed;
+/*When page loads background covers 100% of the screen height*/
+height:100vh;
+}
+
+
+.container_fixed_height {min-height: 750px;
+}
+
+.panel_fixed_height {max-height: 50px;
+}
+
+.panel_image {
+/*background-size: cover;
+background-origin: center;
+background-repeat:no-repeat;
+background-position: center center;
+background-attachment: fixed;
+height:100vh;*/
+
+}
+
+.title_text {
+vertical-align: baseline;
+padding-top:30%;
+ /*height: 100vh;*/
+ /* Flexbox below*/
+ /*display: flex;*/
+ /*align-items: center;*/
+ /*vertical-align: center;*/
+}
+
+.h1_styling {
+  color: white;
+  font:bold;
+  font-family: 'Raleway', cursive;
+  font-size: 300%;
+  padding-left:6%;
+}
+
+.h2_styling {
+  color: black;
+  font:bold;
+  font-family: 'Raleway', cursive;
+  font-size: 200%;
+  padding-left:3%;
+}
+
+.h3_styling {
+  vertical-align: bottom;
+  color: white;
+  font-family: 'Raleway', cursive;
+  font-size: 160%;
+  padding-left:6%;
+}
+
+.h4_styling {
+  color: black;
+  font:bold;
+  font-family: 'Raleway', cursive;
+  font-size: 100%;
+  padding-left:3%;
+}
+
+.beige_panel {
+	background-color: #f5f2ed;
+}
+
+.grey_panel {
+	background-color: #edeef5;
+}
+
