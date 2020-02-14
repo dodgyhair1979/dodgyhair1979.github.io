@@ -4,17 +4,22 @@
 	<title>Why journal?</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+<!-- Get font awesome icons -->
+<script src="https://kit.fontawesome.com/16a5d9a5bc.js" crossorigin="anonymous"></script>
+
+<!-- Get Google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Raleway&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 </head>
 <body>
 		
-		<div class="row">
+		<div class="row">	
 				<div class="col-md-12">
-					<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 						  <a class="navbar-brand" href="index.html">Happy 2.0</a>
 							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 							    <span class="navbar-toggler-icon"></span>
@@ -24,6 +29,7 @@
 						      <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
 						      <a class="nav-item nav-link" href="why.html">Why journal?</a>
 						      <a class="nav-item nav-link" href="contact.html">Contact us</a>
+						      <a class="nav-item nav-link" href="app-cover.html">Start journaling</a>
 						      <!-- <a class="nav-item nav-link disabled" href="#">Disabled</a> -->
 						    </div>
 						  </div>
@@ -34,11 +40,41 @@
 
 
 
-		<div class="container">
+		<div class="container contactus_padding">
 			<div class="row">
-				<div class="col-md-12">
-					<h2 class="h2_styling">Contact us</h2>
-					<p> Contact us on the details below...</p> 
+				<div class="col-md-6">
+					<img src = "img/call_center.jpg" class="img-fluid" alt="Responsive image">
+				</div>
+				<div class="col-md-6">
+					<h2 class="h2b_styling">Contact us</h2>
+					<label> Got questions? Yeah you do.  Feel free to contact us and one of our excessively handsome bearded chaps will totally answer them for you.</label> 				
+
+					<!-- <h5 class="h5_styling"> Got questions? Yeah you do.  Feel free to contact us and our handsome bearded chap will totally sort you out.</h5>  -->
+						  <form action="action_page.php">
+
+						 	<label for="fname">First Name</label>
+						    	<input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+						    	<label for="lname">Last Name</label>
+						    	<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+						    	<label for="country">Country</label>
+						    <select id="country" name="country">
+						      	<option value="united_kingdom">United Kingdom</option>
+						      	<option value="australia">Australia</option>
+						      	<option value="canada">Canada</option>
+						      	<option value="usa">USA</option>
+						      	<option value="other_country">Country not listed above</option>
+						    </select>
+
+						    <label for="subject">Subject</label>
+						    	<textarea id="subject" name="subject" placeholder="Write your question here..." style="height:200px color:green">
+						    	</textarea>
+
+						    <input type="submit" value="Submit">
+
+						  </form>
+				
 				</div>
 			</div>
 		</div>

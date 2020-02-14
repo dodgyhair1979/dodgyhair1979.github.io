@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+	<title>App</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<!-- Get font awesome icons -->
+<script src="https://kit.fontawesome.com/16a5d9a5bc.js" crossorigin="anonymous"></script>
+
+<!-- Get Google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Raleway&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+	
+		<div class="row">
+				<div class="col-md-12">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+						  <a class="navbar-brand" href="index.html">Happy 2.0</a>
+							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+							    <span class="navbar-toggler-icon"></span>
+							  </button>
+						  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						    <div class="navbar-nav">
+						      <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
+						      <a class="nav-item nav-link" href="why.html">Why journal?</a>
+						      <a class="nav-item nav-link" href="contact.html">Contact us</a>
+						      <a class="nav-item nav-link" href="app.html">Start journaling</a>
+						      <!-- <a class="nav-item nav-link disabled" href="#">Disabled</a> -->
+						    </div>
+						  </div>
+					</nav>
+				</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 h1_diary_styling">
+				<div>
+					<h1>What's on your mind right now?</h1>
+					<script>
+					const url = 'https://api.pexels.com/v1/curated?per_page=1&page=123)';
+					fetch(url, {
+				      method: 'get',
+				      headers: {
+				      'Authorization':'563492ad6f917000010000018459f77ccf63400eb9b5160c82d070ad' 
+				      }
+				  	})
+
+					fetch(
+					</script>		    
+				</div>
+			</div>	
+		</div>
+		
+		<div class = container>
+			<div class="row">
+				<div class="col-md-12">
+					<div>
+						<form id="diary-form" action="#">
+						    <label for="title" class="h2_diary_styling">Headline</label>
+						    <input type="text" name="title">
+						    <br/>
+						    <label for="description" class="h2_diary_styling">Tell me more...</label>
+						    <textarea name="description"></textarea>
+						    <br/>
+						    <input type="submit" value="Save to journal"=>
+						</form>
+						    <br/>
+					<div id="success-msg" class="hidden" style="color: teal">Got it! <a href="diary.html">See what you wrote</a></div>
+					<!-- <div id="success-msg" class="hidden" style="color: teal">Got it! <a href="diary.html" id="new-entry-link">Take a look at your diary</a>
+				</div> -->
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+
+<!-- This script tag powers our form by sending the information to the API once you've cliked submit!  -->
+<script>
+  const url = 'https://dodgyhair1979.pythonanywhere.com/diaryentry';
+
+  document.querySelector('#diary-form').addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    console.log(ev);
+
+    const data = {
+      title: ev.target.elements[0].value,
+      description: ev.target.elements[1].value,
+    }
+
+    fetch(url, {
+      method: 'post',
+      headers: {
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(res => {
+      if (res.id) {
+        document.querySelector('#success-msg').classList.remove('hidden');
+        document.querySelector('#new-entry-link').setAttribute('href', `single-entry.html?id=${res.id}`);
+      }
+    })
+  });
+</script>
+
+</html>
+
+

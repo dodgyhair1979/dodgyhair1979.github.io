@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Diary</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+  <title>App</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<!-- Get font awesome icons -->
+<script src="https://kit.fontawesome.com/16a5d9a5bc.js" crossorigin="anonymous"></script>
+
+<!-- Get Google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Raleway&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <div class="row">
+        <div class="col-md-12">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+              <a class="navbar-brand" href="index.html">Happy 2.0</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
+                  <a class="nav-item nav-link" href="why.html">Why journal?</a>
+                  <a class="nav-item nav-link" href="contact.html">Contact us</a>
+                  <a class="nav-item nav-link" href="app-cover.html">Start journaling</a>
+                <!-- <a class="navbar-brand" href="buynow.html">Buy now</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button> -->
+                  <!-- <a class="nav-item nav-link disabled" href="#">Disabled</a> -->
+                </div>
+              </div>
+          </nav>
+        </div>
+      </div>
+      
+      
+      <div style="background-image: url('img/asian-woman-smiling.jpg')" class="diary_background_image">
+        <div class="row">
+          <div class="title_text col-md-12">
+            <h1 class="h1_cover_styling animated pulse">Time to reflect...</h1>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+
+</body>
+  <!-- <nav>
+    <a href="#">Home</a>
+    <a href="create-entry.html">Create entry</a>
+  </nav>
+
+  <h1>My diary</h1> -->
+
+  <div id="diary-entries">
+    <h3>Loading entries&hellip;</h3>
+  </div>
+
+
+<div class="row panel_color_1">
+        <div class="col-md-8">
+          <h2 class="h2_styling">Pretend your life is awesome</h2>
+          <h4 class="h4_styling">With Instagram, Twitter and Facebook, you're already used to pretending your life is awesome publicly. Now you can pretend it's more awesome than it is privately too, thanks to Happy 2.0.  You're welcome!
+          </h4> 
+        </div>
+        <div class="col-md-4">
+          <img src = "img/friends_with_phone.jpg" class="img-fluid" alt="Responsive image">
+        </div>
+      </div>
+
+
+<!-- Don't worry too much about what's written in the section below this in the <script tags> for now. It represents Javascript code that calls our API and returns the diary entries to our HTML page (above!) -->
+  <script>
+    const url = 'https://dodgyhair1979.pythonanywhere.com/diaryentry';
+    document.addEventListener("DOMContentLoaded", () => {
+      const diaryEntries = document.querySelector('#diary-entries');
+      fetch(url)
+      .then(r => r.json())
+      .then(data => {
+        const ids = Object.keys(data.entries)
+        const sortedEntries = ids.sort((a, b) => new Date(data.entries[a]).getTime() - new Date(data.entries[b]).getTime());
+        const entriesContent = ids.map(id => `
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+              <div>
+                  <h3 class=h3_diary>${data.entries[id].title}</h3>
+                  <h4 class=h4_diary>${data.entries[id].description}</h4>
+                  </br> 
+                  <p class=p_diary>Created: ${new Date(data.entries[id].createdat).toDateString()} - ${new Date(data.entries[id].createdat).toLocaleTimeString()}</p>
+                  <a type="button" class="btn btn-info" href="single-entry.html?id=${id}">View this entry      </a>
+                  <a type="button" class="btn btn-info" href="update-entry.html?id=${id}">Update this entry</a>
+                  <hr />
+              </div>
+            </div>
+          </div>`).join("");
+        diaryEntries.innerHTML = entriesContent;
+      })
+    });
+  </script>
+</body>
+</html>
